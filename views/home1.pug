@@ -1,0 +1,59 @@
+doctype html
+html
+    head
+        link(rel='preconnect' href='https://fonts.gstatic.com')
+        link(href='https://fonts.googleapis.com/css2?family=Sacramento&display=swap' rel='stylesheet')
+        link(rel='stylesheet' href='/css/styles.css' )
+        link(rel = 'stylesheet', href = '/css/bootstrap.min.css' )
+
+    main
+        header
+            nav
+                ul
+                    li
+                        a(href='/') Home
+                    li(style="color: white;") |
+
+
+                    li
+                        a(href='/postBlog') Create
+                            li(style="color: white;") |
+                    li
+                        a(href='/manage') Mange
+                            li(style="color: white;")
+                    //li
+                    //    a(href='/login') Login
+
+
+        #intro-container
+
+            section#intro-text
+                span Sophia' blog
+
+                button.submit-buttton(onclick="window.location.href='/registrations'") Check Posts
+
+            section#intro-image
+                block content
+
+
+
+        footer
+            .my-footer-container
+                .contact-methods
+                    h3 Contact Me
+                    ul.list-unstyled
+                        li
+                            a(href="mailto:your-email@example.com")
+                                i.bi.bi-envelope-fill
+                                |  Email
+                        li
+                            a(href="https://www.linkedin.com/in/your-linkedin-profile")
+                                i.bi.bi-linkedin
+                                |  LinkedIn
+                        li
+                            a(href="https://twitter.com/your-twitter-profile")
+                                i.bi.bi-twitter
+                                |  Twitter
+                        //- Add more social media links as needed
+                .copyright
+                    p &copy; 2023 Sophia. All rights reserved.

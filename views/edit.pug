@@ -1,0 +1,43 @@
+doctype html
+html
+    head
+        link(rel='preconnect' href='https://fonts.gstatic.com')
+        link(href='https://fonts.googleapis.com/css2?family=Sacramento&display=swap' rel='stylesheet')
+        link(rel='stylesheet' href='/css/styles.css' )
+        link(rel = 'stylesheet', href = '/css/bootstrap.min.css' )
+
+    main
+        header
+            nav
+                ul
+                    li
+                        a(href='/') Home
+                    li(style="color: white;") |
+
+                    li
+                        a(href='/registrations') Blogs
+                        li(style="color: white;") |
+                    li
+                        a(href='/postBlog') Create
+                            li(style="color: white;") |
+                    li
+                        a(href='/manage') Mange
+                            li(style="color: white;")
+
+
+        body
+            h1 Edit Blog Post
+            form(method='post', enctype='multipart/form-data', action=`/edit/${post._id}`)
+                label(for='title') Title:
+                input(type='text', name='title', id='title', value=post.title)
+
+                label(for='content') Content:
+                textarea(name='content', id='content', rows='4')= post.content
+
+                label(for='image') Upload Image (required):
+                input(type='file', name='image', id='image')
+
+                if post.image && post.image.data && post.image.contentType
+                    img(src=`data:${post.image.contentType};base64,${post.image.data.toString('base64')}`, class='post-image', style='max-width: 30%;')
+
+                button(type='submit') Update Post

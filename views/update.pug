@@ -1,0 +1,52 @@
+
+
+extends home1
+
+block content
+
+    -data = data || {}
+
+    |
+
+    if errors
+        ul.error-list
+            li(class = "cat")
+            each error in errors
+                li  <span style="color: red;font-weight: bold;">!Error: </span> #{error.msg}
+
+
+    h2(class="pig") Create Your Post
+    form(action = "/postBlog" method = "POST" class = "form-registration" enctype='multipart/form-data')
+        label(for="title") Title:
+            input(
+                type="text"
+                id="title"
+                name="title"
+                class="form-control"
+                required
+            )
+
+            label(for="content") Content:
+            textarea(
+                id="content"
+                name="content"
+                class="form-control"
+                rows="10"
+                required
+            )
+
+            label(for="image") Upload Image:
+            input(
+                type="file"
+                id="image"
+                name="image"
+                class="form-control"
+                required
+            )
+
+        input(
+            type = "submit"
+            value = "Post Blog"
+            class="btn btn-sm btn-custom-blue btn-block"
+        )
+

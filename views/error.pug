@@ -1,0 +1,13 @@
+doctype html
+html
+    head
+        title= title
+    body
+        h1 Oops! Something went wrong.
+        if error
+            p
+                | Error Message: #{error.message}
+            p
+                | Stack Trace: #{error.stack}
+        else
+            p An unexpected error occurred.

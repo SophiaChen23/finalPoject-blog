@@ -1,0 +1,57 @@
+doctype html
+html
+    head
+        link(rel='preconnect' href='https://fonts.gstatic.com')
+        link(href='https://fonts.googleapis.com/css2?family=Sacramento&display=swap' rel='stylesheet')
+        link(rel='stylesheet' href='/css/styles.css')
+        title= title
+        style.
+
+            .post-image {
+                max-width: 30%; /* Ensure the image doesn't exceed its container's width */
+                height: auto;
+            }
+        body(style="font-size: 18px;")
+            nav
+                ul
+                    li
+                        a(href='/') Home
+                    li(style="color: white;") |
+                    li
+                        a(href='/postBlog') Create
+                            li(style="color: white;") |
+                    li
+                        a(href='/manage') Mange
+                            li(style="color: white;")
+            section.news
+                each post in posts
+                    .post-container
+                        .post
+                            h2= post.title
+                            p= post.content
+                            if post.image && post.image.data && post.image.contentType
+                                img(src=`data:${post.image.contentType};base64,${post.image.data.toString('base64')}`, class='post-image', style='max-width: 30%;')
+
+                            a(href=`/edit/${post._id}`, class='edit-button') Edit
+                            a(href=`/delete/${post._id}`, class='delete-button') Delete
+
+        footer
+            .my-footer-container
+                .contact-methods
+                    h3 Contact Me
+                    ul.list-unstyled
+                        li
+                            a(href="mailto:your-email@example.com")
+                                i.bi.bi-envelope-fill
+                                |  Email
+                        li
+                            a(href="https://www.linkedin.com/in/your-linkedin-profile")
+                                i.bi.bi-linkedin
+                                |  LinkedIn
+                        li
+                            a(href="https://twitter.com/your-twitter-profile")
+                                i.bi.bi-twitter
+                                |  Twitter
+                        //- Add more social media links as needed
+                .copyright
+                    p &copy; 2023 Sophia. All rights reserved.
